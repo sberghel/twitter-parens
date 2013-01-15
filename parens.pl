@@ -21,7 +21,7 @@ our $USERNAME;
 # Debug variable. If it evaluates to True, you'll get debug messages on
 # STDERR.
 # If it evaluates to False, you won't.
-our $DEBUG = 1;
+our $DEBUG = 0;
 
 sub find_parens {
     # Who thought this was a clever way to name arguments???
@@ -305,5 +305,5 @@ sub add_friends {
 log_into_twitter();
 prune_friends();
 add_friends();
-#my @tweets = get_timeline_tweets();
-#find_parens_in_tweets(@tweets);
+my @tweets = get_timeline_tweets();
+find_parens_in_tweets(@tweets);
