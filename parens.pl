@@ -89,9 +89,6 @@ sub match_parens {
     return $paren_string;
 }
 
-my $parens = find_parens('(2 open (1 :) ): :( ;( ;) ); close)');
-my $string = match_parens($parens);
-
 sub log_into_twitter {
     # We need a temporary variable for this, otherwise Net::Twitter->new
     # will fail.
