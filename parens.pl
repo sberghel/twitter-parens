@@ -128,7 +128,8 @@ sub log_into_twitter {
 }
 
 sub get_timeline_tweets {
-    my $tweets = $NT->home_timeline( {"count" => 10} );
+    my $tweets = $NT->home_timeline( {"count" => 100,
+        since_id => get_last_replied_tweet() - 1} );
     if ($DEBUG) {
         say STDERR "Here are some tweets:";
         foreach my $tweet (@{ $tweets }) {
