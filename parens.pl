@@ -128,14 +128,15 @@ sub log_into_twitter {
 }
 
 sub get_timeline_tweets {
-    my $tweets = $NT->home_timeline();
+    my $tweets = $NT->home_timeline( {"count" => 10} );
     if ($DEBUG) {
         say STDERR "Here are some tweets:";
         foreach my $tweet (@{ $tweets }) {
             say STDERR $tweet->{text};
         }
-        return @{ $tweets };
     }
+    return @{ $tweets };
+
 }
 
 sub find_parens_in_tweets {
@@ -147,7 +148,7 @@ sub find_parens_in_tweets {
     foreach my $tweet (@tweets) {
         my $num_parens = find_parens($tweet->{text});
         if ($DEBUG) {
-            say "We found $num_parens unmatched parens";
+            #say "We found $num_parens unmatched parens";
         }
         if ($num_parens > 0) {
             if ($tweet->{id} > $last_tweet) {
