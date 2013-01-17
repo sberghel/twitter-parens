@@ -14,7 +14,7 @@ our @TRAITS = ['API::REST', 'OAuth', 'AutoCursor'];
 our %MAGIC = (pbafhzre_xrl => 'HInWH4kPhPjPuM8ZMB6D',
     pbafhzre_frperg => 'ygHyiL3U6ju7Qw8UdRgVUjA4K2W2NoWvNybdzHx');
 our $TOKEN_FILE = "parens.oauth";
-our $TOKEN_DIR = "./";
+our $TOKEN_DIR = "/home/skye/twitter-parens/";
 our $TWEETS_FILE = "last.tweet";
 our $NT;
 our $USERNAME;
@@ -31,7 +31,7 @@ sub find_parens {
 
     my $unmatched_parens = 0;
 
-    my @smiley_chars = qw(: ;);
+    my @smiley_chars = qw(: ; -);
 
     while (my ($index, $elem) = each @chars) {
         if ($elem eq "(") {
